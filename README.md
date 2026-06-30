@@ -1,6 +1,6 @@
-# 🤖 Chatbot GenAI — Engenharia de Prompt com LLaMA 3.3 + NVIDIA + Oracle Cloud
+# Chatbot GenAI — Engenharia de Prompt com LLaMA 3.3 + NVIDIA + Oracle Cloud
 
-> Relatório técnico estilo LinkedIn — Disciplina de Produtos de GenAI
+> Relatório técnico — Disciplina de Produtos de GenAI
 
 ---
 
@@ -175,6 +175,6 @@ Em produção (OCI): `http://163.176.224.35:8501`
 
 ## Autor
 
-**Guilherme Girata**  
+**Guilherme Cicarello Girata**  
 Disciplina de Produtos de GenAI  
 2026
