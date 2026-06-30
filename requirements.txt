@@ -1,4 +1,3 @@
 streamlit==1.40.1
-chatlas==0.11.0
 openai>=1.99.0
-python-dotenv>=1.1.0
+python-dotenv>=1.0.1
