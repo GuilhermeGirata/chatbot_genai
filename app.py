@@ -21,28 +21,29 @@ client = OpenAI(
 MODEL_NAME = "meta/llama-3.3-70b-instruct"
 
 SYSTEM_PROMPT = """
-Você é um assistente especializado em engenharia de prompt.
+Você é um assistente especializado em hardware e peças de computador.
 
-Seu papel é ajudar o usuário a explorar diferentes estratégias
-de construção de prompts para modelos de linguagem.
+Seu papel é ajudar o usuário a entender, escolher e comparar componentes de computador,
+desde builds simples até setups de alta performance.
 
 Sempre que possível:
-- explique conceitos de forma objetiva;
-- mostre exemplos práticos;
-- compare abordagens quando solicitado;
-- mantenha respostas técnicas e concisas.
+- explique os componentes de forma clara e objetiva;
+- mostre comparações entre modelos e gerações;
+- dê recomendações baseadas em custo-benefício;
+- considere compatibilidade entre peças;
+- mantenha respostas técnicas mas acessíveis para iniciantes.
 """
 
 # =========================================================
 # STREAMLIT
 # =========================================================
 st.set_page_config(
-    page_title="Engenharia de Prompt",
-    page_icon="🤖",
+    page_title="Hardware Advisor",
+    page_icon="🖥️",
     layout="wide"
 )
 
-st.title("🤖 Engenharia de Prompt")
+st.title("🖥️ Hardware Advisor")
 
 # =========================================================
 # SIDEBAR
@@ -50,23 +51,24 @@ st.title("🤖 Engenharia de Prompt")
 with st.sidebar:
     st.header("Sobre")
     st.markdown("""
-Assistente especializado em Engenharia de Prompt.
+Assistente especializado em **peças de computador**.
 
 Faça perguntas sobre:
-- Prompt Engineering
-- LLMs
-- ChatGPT
-- Claude
-- Gemini
-- Agentes
-- RAG
-- Avaliação de prompts
+- Processadores (CPU)
+- Placas de vídeo (GPU)
+- Memória RAM
+- Armazenamento (SSD/HDD)
+- Placas-mãe
+- Fontes de alimentação
+- Gabinetes e refrigeração
+- Builds completas
+- Compatibilidade entre componentes
 """)
     st.markdown("---")
 
     if st.button("Limpar conversa"):
         st.session_state.chat_history = [
-            {"role": "assistant", "content": "Olá! Como posso ajudar você com Engenharia de Prompt?"}
+            {"role": "assistant", "content": "Olá! Sou seu assistente de hardware. Como posso te ajudar a montar ou melhorar seu computador?"}
         ]
         st.rerun()
 
@@ -75,7 +77,7 @@ Faça perguntas sobre:
 # =========================================================
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [
-        {"role": "assistant", "content": "Olá! Como posso ajudar você com Engenharia de Prompt?"}
+        {"role": "assistant", "content": "Olá! Sou seu assistente de hardware. Como posso te ajudar a montar ou melhorar seu computador?"}
     ]
 
 # Exibe histórico
@@ -84,7 +86,7 @@ for message in st.session_state.chat_history:
         st.markdown(message["content"])
 
 # Input
-user_question = st.chat_input("Digite sua pergunta...")
+user_question = st.chat_input("Pergunte sobre peças de computador...")
 
 # =========================================================
 # PROCESSAMENTO
@@ -95,14 +97,13 @@ if user_question:
     with st.chat_message("user"):
         st.markdown(user_question)
 
-    # Monta mensagens no formato chat completions
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     for msg in st.session_state.chat_history:
         if msg["role"] in ["user", "assistant"]:
             messages.append({"role": msg["role"], "content": msg["content"]})
 
     with st.chat_message("assistant"):
-        with st.spinner("Pensando..."):
+        with st.spinner("Analisando componentes..."):
             try:
                 response = client.chat.completions.create(
                     model=MODEL_NAME,

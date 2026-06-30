@@ -1,6 +1,6 @@
-# Chatbot GenAI — Engenharia de Prompt com LLaMA 3.3 + NVIDIA + Oracle Cloud
+# 🖥️ Hardware Advisor — Chatbot com LLaMA 3.3 + NVIDIA + Oracle Cloud
 
-> Relatório técnico — Disciplina de Produtos de GenAI
+> Relatório técnico estilo LinkedIn — Disciplina de Produtos de GenAI
 
 ---
 
@@ -12,7 +12,7 @@ Esta atividade teve como objetivo desenvolver e implantar um chatbot baseado em 
 
 ### Visão geral da solução desenvolvida
 
-A solução consiste em um chatbot especializado em **Engenharia de Prompt**, capaz de responder perguntas sobre estratégias de construção de prompts, LLMs, agentes, RAG e ferramentas como ChatGPT, Claude e Gemini. A interface foi construída com Streamlit, mantendo histórico de conversa na sessão, e o backend consome a API da NVIDIA via protocolo compatível com OpenAI.
+A solução consiste em um chatbot especializado em **hardware e peças de computador**, capaz de responder perguntas sobre processadores, placas de vídeo, memória RAM, armazenamento, compatibilidade entre componentes e montagem de builds completas. A interface foi construída com Streamlit, mantendo histórico de conversa na sessão, e o backend consome a API da NVIDIA via protocolo compatível com OpenAI.
 
 ---
 
@@ -49,7 +49,7 @@ A instância utilizada é elegível ao nível **Always Free** da Oracle Cloud, c
 
 ### Justificativa da escolha
 
-O LLaMA 3.3 70B Instruct foi escolhido por ser um dos modelos open source mais capazes disponíveis na plataforma NVIDIA NIM. Com 70 bilhões de parâmetros e fine-tuning para seguir instruções, ele oferece respostas técnicas de alta qualidade, ideal para um assistente especializado em Engenharia de Prompt.
+O LLaMA 3.3 70B Instruct foi escolhido por ser um dos modelos open source mais capazes disponíveis na plataforma NVIDIA NIM. Com 70 bilhões de parâmetros e fine-tuning para seguir instruções, ele oferece respostas técnicas de alta qualidade — ideal para um assistente especializado em hardware, onde precisão e profundidade técnica são essenciais.
 
 ### Principais características
 
@@ -77,7 +77,7 @@ NVIDIA NIM API → meta/llama-3.3-70b-instruct
 
 - Interface: Streamlit com histórico de mensagens via `st.session_state`
 - Backend: cliente OpenAI apontando para a API da NVIDIA
-- System prompt fixo especializado em Engenharia de Prompt
+- System prompt especializado em hardware e peças de computador
 
 ### Bibliotecas utilizadas
 
@@ -133,7 +133,7 @@ A chave de API da NVIDIA (`NVIDIA_API_KEY`) é armazenada em um arquivo `.env` l
 - Permitir troca de modelo via sidebar
 - Adicionar streaming de respostas para melhor UX
 - Containerizar a aplicação com Docker para facilitar reprodutibilidade
-- Implementar histórico persistente em banco de dados
+- Expandir o escopo para recomendações de builds com base em orçamento
 
 ---
 
