@@ -1,6 +1,6 @@
 # 🖥️ Hardware Advisor — Chatbot com LLaMA 3.3 + NVIDIA + Oracle Cloud
 
-> Relatório técnico estilo LinkedIn — Disciplina de Produtos de GenAI
+> Relatório técnico — Disciplina de Produtos de GenAI
 
 ---
 
